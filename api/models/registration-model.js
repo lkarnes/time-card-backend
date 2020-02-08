@@ -6,6 +6,7 @@ module.exports = {
     registerEmployee,
     loginCompany,
     loginEmployee,
+    getCompanies,
     genToken
 }
 
@@ -24,12 +25,17 @@ function loginEmployee(filter) {
     return db('employee').where(filter).first();
 }
 
+function getCompanies(){
+    return db('company').select('id', 'company_name');
+}
+
 function genToken(user) {
     const payload = {
         subject: user.id,
         name: user.name
     }
-    const secret = process.env.SECRET || 'blue' 
+    console.log(process.env.SECRET)
+    const secret = process.env.SECRET
     const options = {
         expiresIn : '7d'
     }

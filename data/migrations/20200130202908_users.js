@@ -16,8 +16,18 @@ exports.up = function(knex) {
       emp.integer('hourly_rate');
       emp.string('company_id').unsigned().references('company_id').inTable('company').onDelete('CASCADE').onUpdate('CASCADE');
   })
+  .createTable('timecard', tc => {
+    tc.increments();
+    tc.integer('employee_id').notNullable().unsigned().references('id').inTable('employee').onDelete('CASCADE').onUpdate('CASCADE');
+    tc.integer('company_id').notNullable().unsigned().references('id').inTable('company').onDelete('CASCADE').onUpdate('CASCADE');
+    tc.date('date').notNullable();
+    tc.time('clock_on').notNullable();
+    tc.time('clock_off').notNullable();
+    tc.string('location', 224);
+    tc.string('notes', 224);
+  })
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('employee').dropTableIfExists('company')
+    return knex.schema.dropTableIfExists('timecard').dropTableIfExists('employee').dropTableIfExists('company')
 };

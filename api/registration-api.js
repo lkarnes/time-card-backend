@@ -3,6 +3,14 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('./models/registration-model.js')
 
+router.get('/companies', (req,res)=> {
+    db.getCompanies().then(companies => {
+        res.status(200).json(companies);
+    }).catch(err=> {
+        res.status(500).json({error: 'internal server error', err})
+    })
+})
+
 router.post('/company', (req,res)=> {
     const body = req.body;
     const hash = bcrypt.hashSync(body.password, 14);
