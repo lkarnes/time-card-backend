@@ -1,5 +1,8 @@
 // Update with your config settings.
-const dbConnection = process.env.DATABASE_URL
+const dbConnection = process.env.DATABASE_URL;
+require('dotenv').config();
+const pg = require('pg');
+pg.defaults.ssl = true;
 
 module.exports = {
 
