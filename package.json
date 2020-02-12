@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env DB_ENV=development jest --watch --runInBand",
-    "start":"node index.js",
+    "start": "node index.js",
     "server": "nodemon index.js"
   },
   "repository": {
@@ -25,6 +25,7 @@
     "cross-env": "^7.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "gitignore": "^0.6.0",
     "helmet": "^3.21.2",
     "jest": "^25.1.0",
     "jsonwebtoken": "^8.5.1",
