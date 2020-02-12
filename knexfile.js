@@ -9,7 +9,7 @@ module.exports = {
     useNullAsDefault: true,
     connection: { filename: './data/database.db3'},
     migrations: {
-      directory: 'data/migrations/'
+      directory: './data/migrations/'
     },
     seeds: {
       directory: './data/seeds/'
@@ -20,13 +20,15 @@ module.exports = {
       }
     }
   },
-
   production: {
     client: 'pg',
     connection: dbConnection,
     useNullAsDefault: true,
     migrations: {
       directory: './data/migrations'
+    },
+    seeds: {
+      directory: './data/seeds'
     }
   }
 };
