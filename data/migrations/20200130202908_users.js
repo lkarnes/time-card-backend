@@ -12,7 +12,7 @@ exports.up = function(knex) {
       emp.string('job_title', 128).notNullable();
       emp.string('password').notNullable();
       emp.string('email',224).unique().notNullable();
-      emp.integer('phone_number', 20);
+      emp.integer('phone_number', 99999999);
       emp.integer('hourly_rate');
       emp.integer('company_id').unsigned().references('id').inTable('company').onDelete('CASCADE').onUpdate('CASCADE');
   })
