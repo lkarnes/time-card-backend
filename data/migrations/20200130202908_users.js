@@ -12,9 +12,9 @@ exports.up = function(knex) {
       emp.string('job_title', 128).notNullable();
       emp.string('password').notNullable();
       emp.string('email',224).unique().notNullable();
-      emp.integer('phone_number', 20);
+      emp.string('phone_number');
       emp.integer('hourly_rate');
-      emp.string('company_id').unsigned().references('company_id').inTable('company').onDelete('CASCADE').onUpdate('CASCADE');
+      emp.integer('company_id').unsigned().references('id').inTable('company').onDelete('CASCADE').onUpdate('CASCADE');
   })
   .createTable('timecard', tc => {
     tc.increments();
@@ -24,6 +24,15 @@ exports.up = function(knex) {
     tc.time('clock_on').notNullable();
     tc.time('clock_off').notNullable();
     tc.string('location', 224);
+
+
+
+
+
+
+
+
+    0000000000
     tc.string('notes', 224);
   })
 };

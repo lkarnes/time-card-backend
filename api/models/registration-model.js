@@ -11,7 +11,8 @@ module.exports = {
 }
 
 function registerCompany(company) {
-    return db('company').insert(company);
+    console.log(company)
+    return db("company").insert(company);
 }
 function registerEmployee(employee) {
     return db('employee').insert(employee);
