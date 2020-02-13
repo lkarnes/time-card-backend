@@ -19,7 +19,7 @@ router.post('/company', (req,res)=> {
     db.registerCompany(body).then(company => {
         res.status(201).json({message:'company created!', token: token})
     }).catch(err => {
-        res.status(500).json({message: 'internal server error', error: err})
+        res.status(500).json({message: 'internal server error', err})
     })
 })
 
